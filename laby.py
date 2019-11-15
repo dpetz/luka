@@ -32,6 +32,7 @@ LINIEN = {'ensw': '┼',
           'w': '╴'}
 
 
+
 def wuerfeln(seiten):
     return randrange(1, seiten + 1)
 
