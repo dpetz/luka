@@ -4,16 +4,32 @@ import pdb
 FELS = '*'
 WEG = ' '
 
-HOCH = (0, -1)
-RUNTER = (0, 1)
+OBEN = (0, -1)
+UNTEN = (0, 1)
 LINKS = (-1, 0)
 RECHTS = (1, 0)
 
 REIHE = 0
 SPALTE = 1
 
-GERADE = [HOCH, RUNTER, LINKS, RECHTS]
+GERADE = [OBEN, UNTEN, LINKS, RECHTS]
 DIAGONAL = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+
+LINIEN = {'ensw': '┼',
+          'ens': '├',
+          'enw': '┴',
+          'esw': '┬',
+          'es': '┌',
+          'en': '└',
+          'ew': '─',
+          'e': '╶',
+          'nsw': '┤',
+          'ns': '│',
+          'nw': '┘',
+          'sw': '┐',
+          's': '╷',
+          'n': '╵',
+          'w': '╴'}
 
 
 def wuerfeln(seiten):
@@ -65,7 +81,7 @@ def bewege(richtung, feld):
 
 
 def innen(feld, brett):
-    """Prüft ob die Feld-Koordinaten auf dem Brett liegen"""
+    """Prüft ob Feld weder außerhalb noch auf dem Rand liegt"""
     return 0 < feld[REIHE] < (hoch(brett) - 1) and \
         0 < feld[SPALTE] < (breit(brett) - 1)
 
